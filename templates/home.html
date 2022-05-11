@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <link href="/static/styles.css" rel="stylesheet">
+        <title>WORD-L-HELPER</title>
+
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    </head>
+
+    <body>
+
+    <h1>ZACH'S WORD-L-HELPER</h1>
+
+    <p>Press enter without entering any other info for randomized suggestion!</p>
+
+    <form action="/" method="POST">
+        <div class="trim" id="top"></div>
+        <div class="form-row" id="input">
+
+            <div class="col">
+                <div class="custom-control custom-switch">
+                    <input type="radio" class="btn-check" name="one" id="green1" autocomplete="off" value="green">
+                    <label class="btn btn-outline-success" for="green1"> </label>
+                    <input type="radio" class="btn-check" name="one" id="yellow1" autocomplete="off" value="yellow">
+                    <label class="btn btn-outline-success" for="yellow1"></label>
+                    <input type="radio" class="btn-check" name="one" id="gray1" autocomplete="off" value="gray">
+                    <label class="btn btn-outline-success" for="gray1"></label>
+                </div>
+                <input type="checkbox" class="custom-control-input" id="customSwitch1">
+                <input type="text" class="form-control" placeholder="W" name="W" maxlength="1" id="input1" onkeyup="jump(this, 'input2')">
+            </div>
+            <div class="col">
+                <div class="custom-control custom-switch">
+                    <input type="radio" class="btn-check" name="two" id="green2" autocomplete="off" value="green">
+                    <label class="btn btn-outline-success" for="green2"> </label>
+                    <input type="radio" class="btn-check" name="two" id="yellow2" autocomplete="off" value="yellow">
+                    <label class="btn btn-outline-success" for="yellow2"></label>
+                    <input type="radio" class="btn-check" name="two" id="gray2" autocomplete="off" value="gray">
+                    <label class="btn btn-outline-success" for="gray2"></label>
+                </div>
+                <input type="text" class="form-control" placeholder="O" name="O" maxlength="1" id="input2" onkeyup="jump(this, 'input3')">
+            </div>
+            <div class="col">
+                <div class="custom-control custom-switch">
+                    <input type="radio" class="btn-check" name="three" id="green3" autocomplete="off" value="green">
+                    <label class="btn btn-outline-success" for="green3"> </label>
+                    <input type="radio" class="btn-check" name="three" id="yellow3" autocomplete="off" value="yellow">
+                    <label class="btn btn-outline-success" for="yellow3"></label>
+                    <input type="radio" class="btn-check" name="three" id="gray3" autocomplete="off" value="gray">
+                    <label class="btn btn-outline-success" for="gray3"></label>
+                </div>
+                <input type="text" class="form-control" placeholder="R" name="R" maxlength="1" id="input3" onkeyup="jump(this, 'input4')">
+            </div>
+            <div class="col">
+                <div class="custom-control custom-switch">
+                    <input type="radio" class="btn-check" name="four" id="green4" autocomplete="off" value="green">
+                    <label class="btn btn-outline-success" for="green4"> </label>
+                    <input type="radio" class="btn-check" name="four" id="yellow4" autocomplete="off" value="yellow">
+                    <label class="btn btn-outline-success" for="yellow4"></label>
+                    <input type="radio" class="btn-check" name="four" id="gray4" autocomplete="off" value="gray">
+                    <label class="btn btn-outline-success" for="gray4"></label>
+                </div>
+                <input type="text" class="form-control" placeholder="D" name="D" maxlength="1" id="input4" onkeyup="jump(this, 'input5')">
+            </div>
+            <div class="col">
+                <div class="custom-control custom-switch">
+                    <input type="radio" class="btn-check" name="five" id="green5" autocomplete="off" value="green">
+                    <label class="btn btn-outline-success" for="green5"> </label>
+                    <input type="radio" class="btn-check" name="five" id="yellow5" autocomplete="off" value="yellow">
+                    <label class="btn btn-outline-success" for="yellow5"></label>
+                    <input type="radio" class="btn-check" name="five" id="gray5" autocomplete="off" value="gray">
+                    <label class="btn btn-outline-success" for="gray5"></label>
+                </div>
+                <input type="text" class="form-control" placeholder="L" name="L" maxlength="1" id="input5">
+            </div>
+
+        </div>
+        <div class="trim"></div>
+
+        <button class="btn btn-primary" type="submit" id="enter" onclick="store();">Enter</button>
+    </form>
+
+        <p>Suggestion: {{ word }} {{ newwords }}</p>
+
+
+
+        <script>
+        //Make inputs jump to next input box after 1 character entered.
+        function jump(field, next) {
+            if (field.value.length >= field.maxLength) {
+                document.getElementById(next).focus();
+            }
+        }
+        </script>
+
+        <script src="https://code.jquery.com/jquery-3.1.1.min.js">
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    </body>
+
+</html>
